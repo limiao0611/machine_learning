@@ -1,0 +1,7 @@
+Notes:
+
+Machine learning is magical!
+
+1. try iterative method? make y_train_pred of a model as a new column for training. Would it help? 
+
+-- for numeric variables, don't forget scaling, otherwise the feature importance can be quite off. 
