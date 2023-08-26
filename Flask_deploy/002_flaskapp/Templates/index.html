@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+  <img src="{{url_for('static', filename='card_image.png')}}" width="100" height="50">
+
+  <h2> -- Credit card application decision based on default probability -- </h2>
+
+  <form method="POST" action="/">
+    Index of the applicant (0-61502):<br>
+    <input type="number" name="index" min=0 max="61502" value=0>
+    <br><br>
+    Threshold:<br>
+    <input type="number" name="threshold" step="0.01" value=0.2>
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  {% if pred %}
+  <h3>The probability of defaulting is {{ pred }}</h3>
+  {% endif %}
+   
+
+  {% if conclusion %}
+  <h3>{{ conclusion }}</h3>
+  {% endif %}
+
+  {% if pic %}
+  <h3>Major factors for the decision (use SHAP values): </h3>
+  <img src="{{url_for('static', filename='shap_waterfall1.png')}}" width="800" height="400">
+ {% endif %}
+
+  <p>refs: 1000 test data points </p>
+  <img src="{{url_for('static', filename='shap_values_test_beeswarm_1000.png')}}" width="800" height="400">
